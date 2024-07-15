@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Forms;
 using Dalamud.Game.Addon.Lifecycle;
 using Dalamud.Game.Addon.Lifecycle.AddonArgTypes;
 using Dalamud.Game.Text.SeStringHandling;
@@ -167,6 +168,8 @@ internal class AtmaManager : IDisposable {
 
             Service.Plugin.PrintMessage(sb.BuiltString);
         }
+
+        Clipboard.SetText($"/esp \"{selectedTarget.Name}\"");
 
         var aetheryteId = GetNearestAetheryte(selectedTarget.Position);
         if (aetheryteId == 0) {
